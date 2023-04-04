@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://www.tamamliyo.com/assets/images/bg/tamamliyo-cover.png" /> 
+<link rel="shortcut icon" href="./assets/images/icons/icon.jpeg" type="image/x-icon">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+<link rel="stylesheet" href="./assets/css/basvuruSayfasi.css">
+<link rel="stylesheet" href="https://www.tamamliyo.com/assets/css/basvuruSayfasi.css">
+<script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.css" integrity="sha512-+ouAqATs1y4kpPMCHfKHVJwf308zo+tC9dlEYK9rKe7kiP35NiP+Oi35rCFnc16zdvk9aBkDUtEO3tIPl0xN5w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Cep Telefonu Koruma Paketi - Tamamliyo</title>
+    <style>
+        .formBg {
+            background-image: url("./assets/images/others/Hero_Pattern.svg");
+            background-position: center bottom;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .formBgYirtilmaEfekti{
+            background-image: url("./assets/images/others/devider.svg");
+            width: 100%;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 20px;
+            margin-top: -10px;
+        }
+
+        .navBar {
+            background-color: transparent;
+            border: none;
+        }
+
+        .basvurLogo {
+            background-image: url("./assets/images/icons/tamamliyo-yeni-tasarim.svg");
+        }
+
+        label {
+            margin: 0px 10px;
+            color: #77748f;
+            font-size: 17px;
+        }
+
+        .menuButton {
+            color: white;
+        }
+
+        @media screen and (max-width: 1024px) {
+            .basvuruSection {
+                padding: 32px 16px 50px;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .basvuruSection {
+                padding: 150px 10% 40px;
+            }
+        }
+
+        .bg_cep::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url(./assets/images/others/lines.svg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 60%;
+            width: 100%;
+            border-radius: 30px;
+            background-color: #f3f8ff;
+        }
+        .sss {
+            box-shadow: 52px 52px 74px 0 rgba(115, 131, 169, 0.08);
+            background-color: white;
+        }
+        .basvuruSection input[type=checkbox] {
+            margin: 4px 0 0;
+            min-height: unset;
+        }
+        .basvuruSection input[type=checkbox]:focus-visible,
+        .basvuruSection input[type=checkbox]:focus {
+            outline: unset;
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center justify-center overflow-x-hidden overflow-y-auto antialiased bg-[#f3f8ff]" x-data="{open: false}">
+    <div class="border-b navBar border-gray-100/40">
+    <div class="px-3 py-6 mx-auto max-w-[1140px] w-full flex justify-between items-center">
+        <a class="basvurLogo hover:opacity-75" href="/"></a>
+        <div class="fixed w-[100%] min-h-[100vh] top-0 left-0 h-full" x-show="open" x-on:click.self="open = false">
+            <div class="navItems" x-bind:class="open? 'open':''">
+                <div class="flex items-center justify-end mb-10 ml-4 lg:justify-start">
+                    <button class="flex justify-center items-center text-3xl text-white lg:hidden bg-blue-600/75 active:bg-blue-700 w-[50px] h-[50px] rounded-full" x-on:click="open = false"><i class="bi bi-x"></i>
+                    </button>
+                </div>
+                <a class="basvurAnasayfa" href="/">Anasayfa</a>
+                <a class="basvurAnasayfa" href="/hakkimizda">Hakkımızda</a>
+                <a class="basvurAnasayfa" href="/index#urunler">Ürünler</a>
+                <a class="basvurAnasayfa" href="/iletisim">İletişim</a>
+                <a class="basvurAnasayfa" href="/basvuru">Basvur</a>
+                <a class="basvurAnasayfa" href="https://dashboard.tamamliyo.com"><i class="bi bi-person-circle"></i> Üye Girişi</a>
+            </div>
+        </div>
+        <div class="hidden navItems lg:block">
+            <a class="basvurAnasayfa" href="/index#nasilCalisir">Nasıl Çalışır</a>
+            <a class="basvurAnasayfa" href="/index#cozumler">Çözümler</a>
+            <a class="basvurAnasayfa" href="/index#urunler">Ürünler</a>
+            <a class="basvurAnasayfa" href="/hakkimizda">Hakkımızda</a>
+            <a class="basvurAnasayfa" href="/iletisim">İletişim</a>
+        </div>
+        <div class="hidden gap-2 lg:flex">
+            <a class="girisButon" href="/basvuru">Başvur</a>
+            <a class="girisButon" href="https://dashboard.tamamliyo.com"><i class="bi bi-person-circle"></i></a>
+        </div>
+        <button class="flex text-4xl lg:hidden menuButton" x-on:click="open = !open"><i class="bi bi-list"></i>
+        </button>
+    </div>
+</div>    <div class="formBg w-full flex items-center justify-center">
+        <div class="grid w-full grid-cols-1 lg:grid-cols-2  max-w-[1140px] justify-center relative">
+            <div class="w-full flex flex-col justify-center items-center lg:items-start gap-4 lg:gap-6 px-4 lg:px-2 capitalize text-white pt-[100px] lg:pt-[150px]">
+                <div class="text-3xl font-bold lg:text-6xl fontCircular lg:mb-32 text-[#14234b]">
+                    Cep telefonu koruma paketi
+                </div>
+            </div>
+            <div class="col-start-1 lg:col-start-2">
+                <div x-data="{
+                marka:'',model:'',depolama:'',email:'',telefon:'',onayKodu:'',
+                kimlikNo:'',dogumTarihi:'',imeiNo:'',teminatTutari:'',mesafeli:false, gizlilik:true, kvkk:false
+                }">
+                    <div class="basvuruSection bg-none">
+                        <form action="CepKoruma/teklifler" method="POST" class="grid w-full grid-cols-2 bg-white rounded-[30px] shadow-2xl py-10 px-4 lg:px-6" id="teklifFormu">
+                            <div class="col-span-2 mb-5 font-medium text-center text-[#14234b] Title">Başvuru Formu</div>
+
+                            <ul class="col-span-2">
+                                <li class="flex flex-col lg:grid lg:grid-cols-2" id="adim1">
+                                    <div class="flex flex-col items-stretch justify-start">
+                                        <label for="markalar">Marka<span class="text-red-500">*</span></label>
+                                        <select id="markalar" class="shadow-md appearance-none" required x-model="marka">
+                                            <option value="" selected disabled>Marka Seçiniz</option>
+                                        </select>
+                                        <input type="text" id="markaPost" name="markaPost" value="" style="display: none;"> <!-- id yerine adını post atabilmek için-->
+                                    </div>
+                                    <div class="flex flex-col items-stretch justify-start">
+                                        <label for="modeller">Model<span class="text-red-500">*</span></label>
+                                        <select id="modeller" class="shadow-md appearance-none" required x-model="model">
+                                            <option value="" selected disabled class="marka-seciniz">Önce Marka Seçiniz</option>
+                                        </select>
+                                        <input type="text" id="modelPost" name="modelPost" value="" style="display: none;"><!-- id yerine adını post atabilmek için-->
+                                    </div>
+                                    <div class="flex flex-col items-stretch justify-start">
+                                        <label for="depolamalar">Depolama<span class="text-red-500">*</span></label>
+                                        <select id="depolamalar" class="shadow-md appearance-none" required x-model="depolama">
+                                            <option value="" selected disabled class="model-seciniz">Önce Model Seçiniz</option>
+                                        </select>
+                                        <input type="text" id="depolamaPost" name="depolamaPost" value="" style="display: none;"><!-- id yerine adını post atabilmek için-->
+                                    </div>
+                                    <div class="flex flex-col items-stretch justify-start">
+                                        <label for="telefon">Telefon<span class="text-red-500">*</span></label>
+                                        <input type="tel" id="telefon" name="telefon" x-model="telefon" placeholder="555*******" class="shadow-md" required maxlength="10" onkeyup="validateName(this,'errorTelefon',10);" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                                        <span class="hidden px-6 text-red-600 error" id="errorTelefon">Telefon 10 karakter olmalı.</span>
+                                    </div>
+                                    <div class="flex flex-col items-stretch justify-start col-span-2">
+                                        <label for="email">E-mail<span class="text-red-500">*</span></label>
+                                        <input type="email" id="email" name="email" x-model="email" placeholder="E-mail" class="shadow-md" required onkeyup="validateName(this,'errorMail',1);validateEmail(this,'errorMail');">
+                                        <span class="hidden px-6 text-red-600 error" id="errorMail">Lütfen e-mailin doğruluğunu kontrol ediniz.</span>
+                                    </div>
+                                    <div class="flex flex-col items-stretch justify-start col-span-2 gap-2 px-3">
+                                        <div class="flex items-start justify-start">
+                                            <input class="accent-rose-500" type="checkbox" value="mesafeliSatis" id="mesafeliSatis" x-model="mesafeli" />
+                                            <label class="inline-block pl-[0.15rem] hover:cursor-pointer text-sm" for="mesafeliSatis">
+                                                <a href="/mesafeli-satis" target="_blank" class="text-indigo-700/80"> Mesafeli Satış Sözleşmesi</a>'ni okudum, anladım. Vermiş olduğum bilgilerin doğru olduğunu beyan ve kabul ederek onaylıyorum.
+                                            </label>
+                                        </div>
+                                        <div class="flex items-start justify-start">
+                                            <input class="accent-rose-500" type="checkbox" value="kvkk" id="kvkk" x-model="kvkk" />
+                                            <label class="inline-block pl-[0.15rem] hover:cursor-pointer text-sm" for="kvkk">
+                                                <a href="/kvkk" target="_blank" class="text-indigo-700/80"> KVKK ve Aydınlatma Metni</a>'ni okudum, anladım. Vermiş olduğum bilgilerin doğru olduğunu beyan ve kabul ederek onaylıyorum.
+                                            </label>
+                                        </div>
+                                        <span class="hidden px-6 text-red-600 error" id="errorMail">Lütfen gerekli alanları işaretleyiniz.</span>
+                                    </div>
+                                    <div class="col-span-2 px-[10px]">
+                                        <button type="button" id="devamButton1" disabled x-bind:disabled="!marka || !model || !depolama || email.length < 5 || telefon.length != 10 || mesafeli == false || kvkk == false || gizlilik == false" onclick="nextStep(this,'#adim1','#adim2')" class="w-full fontCircular bg-blue-800 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg mt-3 focus:outline-none min-h-[50px] shadow-md opacity-80 text-white text-lg" data-te-ripple-init data-te-ripple-color="light">Devam Et</button>
+                                    </div>
+                                </li>
+                                <li class="flex-col hidden lg:grid-cols-2" id="adim2">
+                                    <div class="flex flex-col items-stretch justify-start col-span-2">
+                                        <label for="onayKodu">Sms Onay Kodu<span class="text-red-500">*</span></label>
+                                        <input type="text" id="onayKodu" name="onayKodu" x-model="onayKodu" placeholder="SMS Onay Kodu" class="shadow-md" required maxlength="4" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                                    </div>
+                                    <div class="col-span-2 px-[10px]">
+                                        <button type="button" id="devamButton2" disabled x-bind:disabled="onayKodu.length != 4" onclick="nextStep(this,'#adim2','#adim3')" class="w-full fontCircular bg-blue-800 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg mt-3 focus:outline-none min-h-[50px] shadow-md opacity-80 text-white text-lg" data-te-ripple-init data-te-ripple-color="light">Devam Et</button>
+                                    </div>
+                                </li>
+                                <li class="flex-col hidden lg:grid-cols-2" id="adim3">
+                                    <div class="flex flex-col items-stretch justify-start">
+                                        <label for="kimlikNo">Kimlik No <span class="text-red-500">*</span></label>
+                                        <input type="text" id="kimlikNo" name="kimlikNo" x-model="kimlikNo" placeholder="Kimlik No" class="m-0 shadow-md" maxlength="11" required onkeyup="validateName(this,'errorKimlik',11);" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                                        <span class="hidden px-6 text-red-600 error" id="errorKimlik">Kimlik alanı 11 karakter olmalıdır.</span>
+                                    </div>
+                                    <div class="flex flex-col items-stretch justify-start">
+                                        <label for="dogumTarihi">Doğum Tarihi <span class="text-red-500">*</span></label>
+                                        <input type="text" id="dogumTarihi" name="dogumTarihi" x-model="dogumTarihi" placeholder="08/09/1989" class="shadow-md" required onkeyup="validateName(this,'errorDogumTarihi',10);" oninput="dogumTarihiKontrol('dogumTarihi')">
+                                        <span class="hidden px-6 text-red-600 error" id="errorDogumTarihi">Lütfen doğum tarihini doğru giriniz.</span>
+                                    </div>
+                                    <div class="flex flex-col items-stretch justify-start">
+                                        <label class="il">İl<span class="text-red-500">*</span></label>
+                                        <select id="iller" class="shadow-md appearance-none" name="adresIl" required>
+                                            <option value="" selected class="sehir-seciniz">Şehir seçiniz</option>
+                                            <option value="34">İstanbul</option>
+                                            <option value="6">Ankara</option>
+                                            <option value="35">İzmir</option>
+                                            <option value="1">Adana</option>
+                                            <option value="2">Adıyaman</option>
+                                            <option value="3">Afyonkarahisar</option>
+                                            <option value="4">Ağrı</option>
+                                            <option value="5">Amasya</option>
+                                            <option value="7">Antalya</option>
+                                            <option value="8">Artvin</option>
+                                            <option value="9">Aydın</option>
+                                            <option value="10">Balıkesir</option>
+                                            <option value="11">Bilecik</option>
+                                            <option value="12">Bingöl</option>
+                                            <option value="13">Bitlis</option>
+                                            <option value="14">Bolu</option>
+                                            <option value="15">Burdur</option>
+                                            <option value="16">Bursa</option>
+                                            <option value="17">Çanakkale</option>
+                                            <option value="18">Çankırı</option>
+                                            <option value="19">Çorum</option>
+                                            <option value="20">Denizli</option>
+                                            <option value="21">Diyarbakır</option>
+                                            <option value="22">Edirne</option>
+                                            <option value="23">Elazığ</option>
+                                            <option value="24">Erzincan</option>
+                                            <option value="25">Erzurum</option>
+                                            <option value="26">Eskişehir</option>
+                                            <option value="27">Gaziantep</option>
+                                            <option value="28">Giresun</option>
+                                            <option value="29">Gümüşhane</option>
+                                            <option value="30">Hakkâri</option>
+                                            <option value="31">Hatay</option>
+                                            <option value="32">Isparta</option>
+                                            <option value="33">Mersin</option>
+                                            <option value="36">Kars</option>
+                                            <option value="37">Kastamonu</option>
+                                            <option value="38">Kayseri</option>
+                                            <option value="39">Kırklareli</option>
+                                            <option value="40">Kırşehir</option>
+                                            <option value="41">Kocaeli</option>
+                                            <option value="42">Konya</option>
+                                            <option value="43">Kütahya</option>
+                                            <option value="44">Malatya</option>
+                                            <option value="45">Manisa</option>
+                                            <option value="46">Kahramanmaraş</option>
+                                            <option value="47">Mardin</option>
+                                            <option value="48">Muğla</option>
+                                            <option value="49">Muş</option>
+                                            <option value="50">Nevşehir</option>
+                                            <option value="51">Niğde</option>
+                                            <option value="52">Ordu</option>
+                                            <option value="53">Rize</option>
+                                            <option value="54">Sakarya</option>
+                                            <option value="55">Samsun</option>
+                                            <option value="56">Siirt</option>
+                                            <option value="57">Sinop</option>
+                                            <option value="58">Sivas</option>
+                                            <option value="59">Tekirdağ</option>
+                                            <option value="60">Tokat</option>
+                                            <option value="61">Trabzon</option>
+                                            <option value="62">Tunceli</option>
+                                            <option value="63">Şanlıurfa</option>
+                                            <option value="64">Uşak</option>
+                                            <option value="65">Van</option>
+                                            <option value="66">Yozgat</option>
+                                            <option value="67">Zonguldak</option>
+                                            <option value="68">Aksaray</option>
+                                            <option value="69">Bayburt</option>
+                                            <option value="70">Karaman</option>
+                                            <option value="71">Kırıkkale</option>
+                                            <option value="72">Batman</option>
+                                            <option value="73">Şırnak</option>
+                                            <option value="74">Bartın</option>
+                                            <option value="75">Ardahan</option>
+                                            <option value="76">Iğdır</option>
+                                            <option value="77">Yalova</option>
+                                            <option value="78">Karabük</option>
+                                            <option value="79">Kilis</option>
+                                            <option value="80">Osmaniye</option>
+                                            <option value="81">Düzce</option>
+                                        </select>
+                                        <span class="hidden px-6 text-red-600 error" id="errorİl">Lütfen il seçiniz.</span>
+                                    </div>
+                                    <div class="flex flex-col items-stretch justify-start">
+                                        <label class="il">İlçe<span class="text-red-500">*</span></label>
+                                        <select id="ilceler" class="shadow-md appearance-none" name="adresIlce" required>
+                                            <option value="" selected disabled class="once-il-seciniz">Önce İl Seçiniz</option>
+                                        </select>
+                                        <span class="hidden px-6 text-red-600 error" id="errorİl">Lütfen ilçe seçiniz.</span>
+                                    </div>
+                                    <div class="flex flex-col items-stretch justify-start">
+                                        <label for="imeiNo">Imei No <span class="text-red-500">*</span></label>
+                                        <input type="text" id="imeiNo" name="imeiNo" x-model="imeiNo" placeholder="Imei No" class="shadow-md" maxlength="15" required onkeyup="validateName(this,'errorImei',15);" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                                        <span class="hidden px-6 text-red-600 error" id="errorImei">Imei 15 karakter olmalıdır.</span>
+                                    </div>
+                                    <div class="flex flex-col items-stretch justify-start">
+                                        <label for="teminatTutari">Cihaz Bedeli (₺)<span class="text-red-500">*</span></label>
+                                        <input type="text" id="teminatTutari" name="teminatTutari" x-model="teminatTutari" placeholder="Cihaz Bedeli (₺)" class="shadow-md" required onkeyup="validateName(this,'errorTeminat',1);" oninput="this.value = this.value.replace(/[^0-9]/g, '').replace(/(\..*)\./g, '$1');">
+                                        <span class="hidden px-6 text-red-600 error" id="errorTeminat">Cihaz bedeli boş olamaz.</span>
+                                    </div>
+                                    <div class="col-span-2 px-[10px]">
+                                        <button type="button" id="basvuruButton" class="w-full fontCircular bg-blue-800 hover:bg-indigo-500 active:bg-indigo-600 rounded-lg mt-3 focus:outline-none min-h-[50px] shadow-md opacity-80 text-white text-lg" data-te-ripple-init data-te-ripple-color="light" disabled onclick="submitForm()" x-bind:disabled="kimlikNo.length != 11 || !dogumTarihi || imeiNo.length != 15 || teminatTutari.length  < 1">Teklif Al</button>
+                                    </div>
+                                </li>
+                            </ul>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+    <style>
+    .list-title::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 6px;
+        height: 1rem;
+        width: 1rem;
+        background: #fff;
+        border-radius: 5px 5px 5px 15px;
+    }
+
+    .list-items li {
+        margin: 16px 0px;
+    }
+</style>
+
+<div class="flex justify-center items-center fixed bottom-4 right-8 gap-4 z-40">
+    <div class="capitalize bg-emerald-200 px-2 py-1.5 rounded-lg text-neutral-600 text-sm hidden md:block">
+        Whatsapp destek hattı
+    </div>
+    <div class="flex justify-center">
+        <div class="relative" data-te-dropdown-position="dropup">
+            <button type="button" id="wpdestekButton" data-te-dropdown-toggle-ref aria-expanded="false" data-te-ripple-init data-te-ripple-color="light" class="mb-2 inline-block rounded-full p-4 text-xs font-medium uppercase leading-normal text-white shadow-lg transition duration-150 ease-in-out hover:shadow-lg focus:outline-none focus:ring-0 bg-emerald-500">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                </svg>
+            </button>
+
+            <ul class="absolute z-[1000] float-left mb-3 hidden min-w-max list-none overflow-hidden rounded-lg border-none bg-white bg-clip-padding text-left text-base shadow-lg dark:bg-neutral-700 [&[data-te-dropdown-show]]:block" aria-labelledby="wpdestekButton" data-te-dropdown-menu-ref>
+                <div class="bg-emerald-500 text-white p-5 text-center">
+                    <h1 class="text-xl font-bold">Yardıma mı ihtiyacınız var?<br>Bizimle iletişime geçin.</h1>
+                </div>
+                <div class="bg-white p-5">
+                    <div class="p-2.5 bg-slate-100 flex items-center justify-between hover:cursor-pointer" onclick="redirectToWhatsApp()">
+                        <div class="rounded-full border-2 border-green-500">
+                            <img class="rounded-full" width="60" src="https://tamamliyo.com/assets/images/icons/icon.jpeg" alt="">
+                        </div>
+                        <div class="flex flex-col items-start justify-between capitalize gap-1">
+                            <h1 class="font-bold text-sm">tamamliyo destek hattı</h1>
+                            <div class="py-[1px] px-1 rounded-md text-white bg-green-500 w-fit text-xs font-bold">müsait</div>
+                        </div>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<footer class="col-span-2 bg-[#110521] pt-10 lg:pt-[75px] pb-[35px] left-0 w-full">
+    <div class="flex flex-col items-center justify-center gap-8 text-white">
+        <div class="sm:px-4 max-w-[1140px] w-full">
+            <div class="flex flex-wrap lg:flex-nowrap">
+                <div class="pl-4 pr-4 lg:w-1/2">
+                    <div class="mb-6">
+                        <div class="">
+                            <img width="180" src="https://www.tamamliyo.com/assets/images/icons/tamamliyo-logo-beyaz.svg" alt="">
+                            <span class="text-lg" style="color: #ffffff;">Yalı, D-100 Güney Yanyolu Helis More Residence <br>No:42, K:7 D:78 34873 Kartal/İstanbul </span>
+
+                        </div>
+
+                    </div>
+                    <div id="ETBIS">
+                        <div id="2125657774285684"><a href="https://etbis.eticaret.gov.tr/sitedogrulama/2125657774285684" target="_blank"><img style='width:100px; height:120px' src="data:image/jpeg;base64, iVBORw0KGgoAAAANSUhEUgAAAIIAAACWCAYAAAASRFBwAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAEUMSURBVHhe7Z0HuF1F9fYlQSAQEoqAdJCOgAKhSRMBQQRBikhvQVAQadI7SBMFpYOAECAo3dCMCARIu7k1uSkkgfTeeyXzrd+++z13nX3mlJuGfn/f53kJd9reZ+81M2utWTP7a4awPPiXv/wlgOnTp4f111+/IL9r165Jvsdtt91WUO6ggw5Kc0M4//zzC/I933vvvaTc559/Hlq3bp2kXXvttUka2HXXXZO0Aw44IE0J4YILLkjS1l577TBhwoQ0tRlHHXVUkr/11luHRYsWpamlcdFFFyV1PE866aQ0txnDhw8PX//615P83/72t2lqacyZMydssskmSZ0TTzwxTQ3hJz/5Sd71loGvGhPEMlvMr0IQunXrlpSbNGlSLu2aa65J0gAvk7Q99tgjTQnhN7/5TZLWrl276IteGkG44oorctcXjz322DS3GTNmzMgJwk033ZSmlsdmm22W1FkpgrDNNtuEM844o0U8/PDDcw1WKgg8jOeeey7hLbfckmtrnXXWScqVEwRekOrcf//9STuPP/54OPPMM5M0HrDa/+Uvf5mk/frXv86lHXLIIUk7a6yxRnjooYeStI8//ji9YuWCMHHixFybhx12WFJn1VVXTV4W17zyyitz+eIf//jH3MjFdbL5MfJc11133aROTBDWWmutcNppp+WeSSU89dRTw5prrpnUN+YLwi9+8Yv0EpWjurpajVUsCAMHDsyl3XjjjUka2G233ZK0coJwzjnnpLkhKUvaN77xjTQlhLvuuitXdtiwYUlaTU1NLi1GXopQqSAwGmXbadu2bViwYEGS/+abbxbkLytjgrDVVlulKS3D5ptvrnbzBeGss85Ki1SODz74QI2VFYR33nknyR88eHBYZZVVkrQ77rgjSQOaz+mxwrnnnpvXBjz++OPT3BAOPPDAJG3DDTcMixcvTtLuvPPOXFl0B1BVVZVLi/GEE05IygE94HKC0L1794J2EITZs2cn+V26dCnIX1bGBGGLLbbICV+lmDdvXth0003VbnFBuPrqq8MRRxxRlCNHjkzKlROEQw89NFHo4OTJk5N8LwhMR2qTh0gaw6DSfv/73+fqi3379k3aAYxIpDG0L1myJEnzgvC9730vaYdRJNuO55///OfcNRldqLs0gsCw//3vfz9p5zvf+U4u/dZbb41etxTRMXzbsJwgvPrqq7nfEePrr7+elKtYEPbZZx8VirKxsTEpFxOEadOm5eafs88+O0nzQIgkCOX4zDPPpLUqhxcEkWmnFP7+978X1Nl4441LCkK56cYToWkp0DGy7RxzzDFpblwQ/LQY4z333JOUq1gQ6MlKj5F5HsQEYebMmWH33XdPehR6xxdffJFH6kgQUBApV4wPPvhgQX2UtCx4YegD5DPdZNvhAao+95cFw3i2DvqHphtGOdUXX3nlldxvZwTM1me68s8mWz/GMWPGJNcDKLjU5Vkxn9Pmr371qzQ3Lggoo7pmjA888EBSbqUIAuDFwGeffTbRpLNUneuvvz5XNkYEKVsX6yALHuLqq6+e5ONHyLaDYqf6TzzxRFqrGUwr2TpQuPfee3P1RWn/kKklW7dz5865fMpm68fIVCZIEBhdR4wYkbQpwQT/FYIgdOrUKa9elgx/pcDUkq3jlUWB6Uj53qEk+Pmce2opYtONZ6zNt956K1q2FDt06JDWDoleo/Rx48alqc34rxIE7GBfD6IMIgB41lCKhKeffjrpeZ6Yl5TzvOGGGwrK4URq1apV0n5MED755JPc9bEQsvVjZOT48ssvk/p33313rn6Mxx13XEH922+/veDePQ8++OCCdtDNhDfeeCMpd9111yW+lyxWiiDI6VKMyzIi7LjjjmluPuRG9UQ4snj55ZcLynl6z6LgBaFStm/fvmJBiJEXVQqPPPJIQZ299947zS2PmCD84Q9/KGjTEwccqFgQ5KgpxgEDBiTlygnCiy++mFcPbr/99mluPnbZZZeCso8++mia24yXXnqpoJznVVddlZZsxtIIwre+9a209tIJQmytwSP20vbcc880tzxigoC5nW3Tk2uCigXhs88+C3369ClKGgIxQZg1a1YytTDfoekqX0Sp4weT79mmTZskH4tD12ENAeCkwY2bbROrwt8XHD16dFLHwwsCU0e2juf++++flPP3yfCs/O222y7JxyT19SDXkQ/FC8Kll16a91uh1g/gCy+8kNRntFM+Al8KMUEYP358wT15apGtpCB07NgxKdQS9OrVS43lBAHFjYeo9JbSa84C5htrA9myPXv2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" /></a></div>
+                    </div>
+                    <!-- <div class="my-12 max-w-[394px]">
+                        <img src="https://www.tamamliyo.com/assets/images/logos/iyzico-logos-white.png" width="" alt="">
+                    </div> -->
+                </div>
+                <div class="w-1/2 pl-4 pr-4 sm:w-1/5">
+                    <h6 class="relative pl-6 text-xl list-title fontCircular" id="sirket">Şirket</h6>
+                    <ul class="list-items">
+                        <li> <a href="/hakkimizda" id="footerHakkimizda">Hakkımızda</a> </li>
+                        <li> <a href="/iletisim" id="footerIletisim">İletişim</a> </li>
+                        <li> <a href="https://yatirim.fongogo.com/ProjectDetail/ProjectDetail?URLKey=tamamliyo" id="kitleselFonlama">Kitlesel Fonlama</a> </li>
+                        <li> <a href="/blog" id="blog">Blog</a> </li>
+                        <li> <a href="/gizlilik-sozlesmesi" id="gizlilikSozlesmesi">Gizlilik Sözleşmesi</a> </li>
+                        <li> <a href="/kvkk" id="kvkk">KVKK</a> </li>
+                        <li> <a href="/mesafeli-satis" id="mesafeliSatisSozlesmesi">Mesafeli Satış Sözleşmesi</a> </li>
+                        <li> <a href="/teslimat-iade" id="teslimatIade">Teslimat ve İade</a> </li>
+                        <li> <a href="/on-bilgilendirme-formu" id="onBilgilendirme" style="cursor: pointer;">Ön Bilgilendirme Formu</a> </li>
+                    </ul>
+                </div>
+                <div class="w-1/2 pl-4 pr-4 sm:w-1/5">
+                    <h6 class="relative pl-6 text-xl list-title urunler fontCircular" id="urunler">Ürünler</h6>
+                    <ul class="list-items">
+                        <li> <a href="/index#urunler" id="embeddedSigortacilik">Embedded Sigortacılık</a> </li>
+                        <li> <a href="/index#urunler" id="nocodeSigortaSatisi">No-code Sigorta Satışı</a> </li>
+                        <li> <a href="/index#urunler" id="linkIleSigorta">Link ile sigorta </a> </li>
+                    </ul>
+                </div>
+                <div class="pl-4 pr-4 sm:w-1/5">
+                    <h6 class="relative pl-6 text-xl list-title fontCircular" id="hizmet">Hizmet</h6>
+                    <ul class="list-items">
+                        <li> <a href="/seyahat-saglik" id="seyahat">Seyahat</a> </li>
+                        <li> <a href="/bilet-iptal-sigortasi" id="biletIptal">Bilet İptal </a> </li>
+                        <li> <a href="/cep-telefonu-sigortasi" id="cepTelefonu">Cep telefonu</a> </li>
+                        <li> <a href="/pati-sigortasi" id="pati">Pati</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <p class="text-center copyright "> Copyright © 2022. TAMAMLİYO TEKNOLOJİ AŞ.</p>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+
+<script>
+function redirectToWhatsApp() {
+  const phoneNumber = "8502417141";
+  const url = `https://wa.me/${phoneNumber}`;
+  window.open(url,'_blank');
+}
+</script>
+    <!-- Validation -->
+    <script>
+        // Text Validations
+        function validateName(input, errorMsg, len) {
+
+            if (input.value.length < len) {
+                document.getElementById(errorMsg).classList.remove("hidden");
+            } else {
+                document.getElementById(errorMsg).classList.add("hidden");
+            }
+        }
+
+        // Email Validation
+        function validateEmail(input, errorMsg) {
+            if (!input.value.match('@')) {
+                document.getElementById(errorMsg).classList.remove("hidden");
+            } else {
+                document.getElementById(errorMsg).classList.add("hidden");
+            }
+        }
+
+        var oncekiUzunluklar = {
+            "dogumTarihi": 0
+        }
+
+        function dogumTarihiKontrol(id) {
+            //console.log(id);
+            oncekiUzunluk = oncekiUzunluklar[id];
+            //console.log(oncekiUzunluklar);
+            var birthDate = document.getElementById(id).value;
+
+            //console.log("onceki uzunluk: "+oncekiUzunluk+ "  Yeni uzunluk"+birthDate.length);
+
+            if (oncekiUzunluk == 7 && birthDate.length == 6) {
+
+                //console.log("silme 3 ");
+                return;
+            }
+
+            if ((oncekiUzunluk == 2 && birthDate.length == 2) || (oncekiUzunluk == 3 && birthDate.length == 2)) {
+                document.getElementById(id).value = birthDate.substring(0, birthDate.length - 1);
+                oncekiUzunluklar[id] = document.getElementById(id).value.length;
+
+                //console.log("silme");
+                return;
+            }
+
+            if ((oncekiUzunluk == 5 && birthDate.length == 5) || (oncekiUzunluk == 7 && birthDate.length == 5)) {
+                document.getElementById(id).value = birthDate.substring(0, birthDate.length - 1);
+                oncekiUzunluklar[id] = document.getElementById(id).value.length;
+
+                //console.log("silme 2 ");
+                return;
+            }
+            if (oncekiUzunluk == 4 && birthDate.length == 3) {
+                //document.getElementById("birthDate").value =  document.getElementById("birthDate").value+"/";
+                oncekiUzunluklar[id] = document.getElementById(id).value.length;
+
+                return;
+            }
+
+
+            oncekiUzunluklar[id] = birthDate.length;
+            if (birthDate.charCodeAt(birthDate.length - 1) < 48 || birthDate.charCodeAt(birthDate.length - 1) > 57) {
+                document.getElementById(id).value = birthDate.substring(0, birthDate.length - 1);
+            }
+
+            if (birthDate.length == 2) {
+                if (birthDate > 31) {
+                    document.getElementById(id).value = "31/";
+                } else {
+                    document.getElementById(id).value = birthDate + "/";
+
+                }
+            }
+            if (birthDate.length == 5) {
+                var birthMonth = birthDate[3] + birthDate[4];
+                if (birthMonth > 12) {
+                    document.getElementById(id).value = birthDate.substring(0, 3) + "12/";
+                } else {
+                    document.getElementById(id).value = birthDate + "/";
+                }
+            }
+            if (birthDate.length == 10) {
+                var now = new Date();
+                if (birthDate[6] + birthDate[7] + birthDate[8] + birthDate[9] < 1930) {
+                    document.getElementById(id).value = birthDate.substring(0, 6) + now.getFullYear();
+                }
+                if (now.getFullYear() < birthDate[6] + birthDate[7] + birthDate[8] + birthDate[9]) {
+                    document.getElementById(id).value = birthDate.substring(0, 6) + now.getFullYear();
+
+                }
+            }
+            if (birthDate.length > 10) {
+                document.getElementById(id).value = birthDate.substring(0, birthDate.length - 1);
+            }
+        }
+    </script>
+
+    <!-- nexStep ve Teklif Post -->
+    <script>
+        function nextStep(button, thisStep, nextStep) {
+            button = button.id;
+            // sms kodu gönder
+            if (button == "devamButton1") {
+                $.ajax({
+                    url: "api/cep-sigorta/smsGonder.php",
+                    method: 'POST',
+                    cache: false,
+                    data: {
+                        "telefonNo": $("#telefon").val()
+                    },
+                    success: function(apiData) {}
+                });
+                $(thisStep).removeClass("flex lg:grid");
+                $(thisStep).addClass("hidden");
+                $(nextStep).removeClass("hidden");
+                $(nextStep).addClass("flex lg:grid");
+            } else if (button == "devamButton2") {
+                $.ajax({
+                    url: "api/cep-sigorta/smsKontrol.php",
+                    method: 'POST',
+                    cache: false,
+                    dataType: 'json',
+                    data: {
+                        "onayKodu": $("#onayKodu").val()
+                    },
+                    success: function(apiData) {
+                        // console.log(apiData);
+                        if (!apiData.success) {
+                            alert("Lütfen onay kodunu doğru girdiğinizden emin olunuz");
+                            return;
+                        }
+                        $(thisStep).removeClass("flex lg:grid");
+                        $(thisStep).addClass("hidden");
+                        $(nextStep).removeClass("hidden");
+                        $(nextStep).addClass("flex lg:grid");
+                    }
+                });
+            }
+        }
+
+        $("#markalar").change(function() {
+            $("#markaPost").val($("#markalar :selected").text());
+        });
+        $("#modeller").change(function() {
+            $("#modelPost").val($("#modeller :selected").text());
+        });
+        $("#depolamalar").change(function() {
+            $("#depolamaPost").val($("#depolamalar :selected").text());
+        });
+
+        function submitForm() {
+            $("#teklifFormu").submit();
+        }
+    </script>
+
+    <!-- Marka, Model, Depolama ve İller -->
+    <script>
+        // Markalar
+        var jsonString = '[{"id":"1","isim":"Apple"},{"id":"2","isim":"Samsung"},{"id":"3","isim":"Google"},{"id":"4","isim":"Huawei"},{"id":"5","isim":"OnePlus"},{"id":"6","isim":"Asus"},{"id":"7","isim":"Cat"},{"id":"8","isim":"Elephone"},{"id":"9","isim":"Fairphone"},{"id":"10","isim":"HTC"},{"id":"11","isim":"Honor"},{"id":"12","isim":"LG"},{"id":"13","isim":"Microsoft"},{"id":"14","isim":"Motorola"},{"id":"15","isim":"Nokia"},{"id":"16","isim":"Nothing"},{"id":"17","isim":"Nubia"},{"id":"18","isim":"Oppo"},{"id":"19","isim":"Razer"},{"id":"20","isim":"Realme"},{"id":"21","isim":"Sony"},{"id":"22","isim":"TCL"},{"id":"23","isim":"Xiaomi"}]';
+        var markalar = JSON.parse(jsonString);
+
+        // Modeller
+        var jsonString = '[{"id":"1","isim":"iPhone 11","depolama_id":"4","marka_id":"1"},{"id":"2","isim":"iPhone 11","depolama_id":"5","marka_id":"1"},{"id":"3","isim":"iPhone 11","depolama_id":"6","marka_id":"1"},{"id":"4","isim":"iPhone 11 Pro","depolama_id":"4","marka_id":"1"},{"id":"5","isim":"iPhone 11 Pro","depolama_id":"6","marka_id":"1"},{"id":"6","isim":"iPhone 11 Pro","depolama_id":"7","marka_id":"1"},{"id":"7","isim":"iPhone 11 Pro Max","depolama_id":"4","marka_id":"1"},{"id":"8","isim":"iPhone 11 Pro Max","depolama_id":"6","marka_id":"1"},{"id":"9","isim":"iPhone 11 Pro Max","depolama_id":"7","marka_id":"1"},{"id":"10","isim":"iPhone 12","depolama_id":"4","marka_id":"1"},{"id":"11","isim":"iPhone 12","depolama_id":"5","marka_id":"1"},{"id":"12","isim":"iPhone 12","depolama_id":"6","marka_id":"1"},{"id":"13","isim":"iPhone 12 Mini","depolama_id":"4","marka_id":"1"},{"id":"14","isim":"iPhone 12 Mini","depolama_id":"5","marka_id":"1"},{"id":"15","isim":"iPhone 12 Mini","depolama_id":"6","marka_id":"1"},{"id":"16","isim":"iPhone 12 Pro","depolama_id":"5","marka_id":"1"},{"id":"17","isim":"iPhone 12 Pro","depolama_id":"6","marka_id":"1"},{"id":"18","isim":"iPhone 12 Pro","depolama_id":"7","marka_id":"1"},{"id":"19","isim":"iPhone 12 Pro Max","depolama_id":"5","marka_id":"1"},{"id":"20","isim":"iPhone 12 Pro Max","depolama_id":"6","marka_id":"1"},{"id":"21","isim":"iPhone 12 Pro Max","depolama_id":"7","marka_id":"1"},{"id":"22","isim":"iPhone 13","depolama_id":"5","marka_id":"1"},{"id":"23","isim":"iPhone 13","depolama_id":"6","marka_id":"1"},{"id":"24","isim":"iPhone 13","depolama_id":"7","marka_id":"1"},{"id":"25","isim":"iPhone 13 Pro","depolama_id":"5","marka_id":"1"},{"id":"26","isim":"iPhone 13 Pro","depolama_id":"6","marka_id":"1"},{"id":"27","isim":"iPhone 13 Pro","depolama_id":"7","marka_id":"1"},{"id":"28","isim":"iPhone 13 Pro","depolama_id":"8","marka_id":"1"},{"id":"29","isim":"iPhone 13 Pro Max","depolama_id":"5","marka_id":"1"},{"id":"30","isim":"iPhone 13 Pro Max","depolama_id":"6","marka_id":"1"},{"id":"31","isim":"iPhone 13 Pro Max","depolama_id":"7","marka_id":"1"},{"id":"32","isim":"iPhone 13 Pro Max","depolama_id":"8","marka_id":"1"},{"id":"33","isim":"iPhone 13 mini","depolama_id":"5","marka_id":"1"},{"id":"34","isim":"iPhone 13 mini","depolama_id":"6","marka_id":"1"},{"id":"35","isim":"iPhone 13 mini","depolama_id":"7","marka_id":"1"},{"id":"36","isim":"iPhone 14","depolama_id":"5","marka_id":"1"},{"id":"37","isim":"iPhone 14","depolama_id":"6","marka_id":"1"},{"id":"38","isim":"iPhone 14","depolama_id":"7","marka_id":"1"},{"id":"39","isim":"iPhone 14 Plus","depolama_id":"5","marka_id":"1"},{"id":"40","isim":"iPhone 14 Plus","depolama_id":"6","marka_id":"1"},{"id":"41","isim":"iPhone 14 Plus","depolama_id":"7","marka_id":"1"},{"id":"42","isim":"iPhone 14 Pro","depolama_id":"5","marka_id":"1"},{"id":"43","isim":"iPhone 14 Pro","depolama_id":"6","marka_id":"1"},{"id":"44","isim":"iPhone 14 Pro","depolama_id":"7","marka_id":"1"},{"id":"45","isim":"iPhone 14 Pro","depolama_id":"8","marka_id":"1"},{"id":"46","isim":"iPhone 14 Pro Max","depolama_id":"5","marka_id":"1"},{"id":"47","isim":"iPhone 14 Pro Max","depolama_id":"6","marka_id":"1"},{"id":"48","isim":"iPhone 14 Pro Max","depolama_id":"7","marka_id":"1"},{"id":"49","isim":"iPhone 14 Pro Max","depolama_id":"8","marka_id":"1"},{"id":"50","isim":"iPhone 6S","depolama_id":"2","marka_id":"1"},{"id":"51","isim":"iPhone 6S","depolama_id":"3","marka_id":"1"},{"id":"52","isim":"iPhone 6S","depolama_id":"4","marka_id":"1"},{"id":"53","isim":"iPhone 6S","depolama_id":"5","marka_id":"1"},{"id":"54","isim":"iPhone 6S Plus","depolama_id":"2","marka_id":"1"},{"id":"55","isim":"iPhone 6S Plus","depolama_id":"3","marka_id":"1"},{"id":"56","isim":"iPhone 6S Plus","depolama_id":"4","marka_id":"1"},{"id":"57","isim":"iPhone 6S Plus","depolama_id":"5","marka_id":"1"},{"id":"58","isim":"iPhone 7","depolama_id":"3","marka_id":"1"},{"id":"59","isim":"iPhone 7","depolama_id":"5","marka_id":"1"},{"id":"60","isim":"iPhone 7","depolama_id":"6","marka_id":"1"},{"id":"61","isim":"iPhone 7 Plus","depolama_id":"3","marka_id":"1"},{"id":"62","isim":"iPhone 7 Plus","depolama_id":"5","marka_id":"1"},{"id":"63","isim":"iPhone 7 Plus","depolama_id":"6","marka_id":"1"},{"id":"64","isim":"iPhone 8","depolama_id":"4","marka_id":"1"},{"id":"65","isim":"iPhone 8","depolama_id":"5","marka_id":"1"},{"id":"66","isim":"iPhone 8","depolama_id":"6","marka_id":"1"},{"id":"67","isim":"iPhone 8 Plus","depolama_id":"4","marka_id":"1"},{"id":"68","isim":"iPhone 8 Plus","depolama_id":"5","marka_id":"1"},{"id":"69","isim":"iPhone 8 Plus","depolama_id":"6","marka_id":"1"},{"id":"70","isim":"iPhone SE (2020)","depolama_id":"4","marka_id":"1"},{"id":"71","isim":"iPhone SE (2020)","depolama_id":"5","marka_id":"1"},{"id":"72","isim":"iPhone SE (2020)","depolama_id":"6","marka_id":"1"},{"id":"73","isim":"iPhone SE (2022)","depolama_id":"4","marka_id":"1"},{"id":"74","isim":"iPhone SE (2022)","depolama_id":"5","marka_id":"1"},{"id":"75","isim":"iPhone SE (2022)","depolama_id":"6","marka_id":"1"},{"id":"76","isim":"iPhone X","depolama_id":"4","marka_id":"1"},{"id":"77","isim":"iPhone X","depolama_id":"6","marka_id":"1"},{"id":"78","isim":"iPhone XR","depolama_id":"4","marka_id":"1"},{"id":"79","isim":"iPhone XR","depolama_id":"5","marka_id":"1"},{"id":"80","isim":"iPhone XR","depolama_id":"6","marka_id":"1"},{"id":"81","isim":"iPhone XS","depolama_id":"4","marka_id":"1"},{"id":"82","isim":"iPhone XS","depolama_id":"6","marka_id":"1"},{"id":"83","isim":"iPhone XS","depolama_id":"7","marka_id":"1"},{"id":"84","isim":"iPhone XS Max","depolama_id":"4","marka_id":"1"},{"id":"85","isim":"iPhone XS Max","depolama_id":"6","marka_id":"1"},{"id":"86","isim":"iPhone XS Max","depolama_id":"7","marka_id":"1"},{"id":"87","isim":"Galaxy A03","depolama_id":"3","marka_id":"2"},{"id":"88","isim":"Galaxy A03","depolama_id":"4","marka_id":"2"},{"id":"89","isim":"Galaxy A10","depolama_id":"3","marka_id":"2"},{"id":"90","isim":"Galaxy A12","depolama_id":"3","marka_id":"2"},{"id":"91","isim":"Galaxy A12","depolama_id":"4","marka_id":"2"},{"id":"92","isim":"Galaxy A12","depolama_id":"5","marka_id":"2"},{"id":"93","isim":"Galaxy A13","depolama_id":"4","marka_id":"2"},{"id":"94","isim":"Galaxy A13 5G","depolama_id":"4","marka_id":"2"},{"id":"95","isim":"Galaxy A20","depolama_id":"3","marka_id":"2"},{"id":"96","isim":"Galaxy A21s","depolama_id":"3","marka_id":"2"},{"id":"97","isim":"Galaxy A21s","depolama_id":"4","marka_id":"2"},{"id":"98","isim":"Galaxy A22","depolama_id":"4","marka_id":"2"},{"id":"99","isim":"Galaxy A22","depolama_id":"5","marka_id":"2"},{"id":"100","isim":"Galaxy A22 5G","depolama_id":"4","marka_id":"2"},{"id":"101","isim":"Galaxy A32 5G","depolama_id":"4","marka_id":"2"},{"id":"102","isim":"Galaxy A33 5G","depolama_id":"5","marka_id":"2"},{"id":"103","isim":"Galaxy A40","depolama_id":"4","marka_id":"2"},{"id":"104","isim":"Galaxy A41","depolama_id":"4","marka_id":"2"},{"id":"105","isim":"Galaxy A42 5G","depolama_id":"5","marka_id":"2"},{"id":"106","isim":"Galaxy A51","depolama_id":"4","marka_id":"2"},{"id":"107","isim":"Galaxy A51","depolama_id":"5","marka_id":"2"},{"id":"108","isim":"Galaxy A51 5G","depolama_id":"5","marka_id":"2"},{"id":"109","isim":"Galaxy A52 5G","depolama_id":"5","marka_id":"2"},{"id":"110","isim":"Galaxy A52s 5G","depolama_id":"5","marka_id":"2"},{"id":"111","isim":"Galaxy A53 5G","depolama_id":"5","marka_id":"2"},{"id":"112","isim":"Galaxy A53 5G","depolama_id":"6","marka_id":"2"},{"id":"113","isim":"Galaxy A71","depolama_id":"5","marka_id":"2"},{"id":"114","isim":"Galaxy A72","depolama_id":"5","marka_id":"2"},{"id":"115","isim":"Galaxy A80","depolama_id":"5","marka_id":"2"},{"id":"116","isim":"Galaxy Fold","depolama_id":"7","marka_id":"2"},{"id":"117","isim":"Galaxy M12","depolama_id":"4","marka_id":"2"},{"id":"118","isim":"Galaxy M31","depolama_id":"4","marka_id":"2"},{"id":"119","isim":"Galaxy M31","depolama_id":"5","marka_id":"2"},{"id":"120","isim":"Galaxy M33 5G","depolama_id":"5","marka_id":"2"},{"id":"121","isim":"Galaxy M51","depolama_id":"5","marka_id":"2"},{"id":"122","isim":"Galaxy M53","depolama_id":"5","marka_id":"2"},{"id":"123","isim":"Galaxy Note 9","depolama_id":"5","marka_id":"2"},{"id":"124","isim":"Galaxy Note 9","depolama_id":"7","marka_id":"2"},{"id":"125","isim":"Galaxy Note10","depolama_id":"6","marka_id":"2"},{"id":"126","isim":"Galaxy Note10 Lite","depolama_id":"5","marka_id":"2"},{"id":"127","isim":"Galaxy Note10+","depolama_id":"6","marka_id":"2"},{"id":"128","isim":"Galaxy Note10+ 5G","depolama_id":"6","marka_id":"2"},{"id":"129","isim":"Galaxy Note10+ 5G","depolama_id":"7","marka_id":"2"},{"id":"130","isim":"Galaxy Note20","depolama_id":"6","marka_id":"2"},{"id":"131","isim":"Galaxy Note20 5G","depolama_id":"6","marka_id":"2"},{"id":"132","isim":"Galaxy Note20 Ultra 5G","depolama_id":"6","marka_id":"2"},{"id":"133","isim":"Galaxy Note20 Ultra 5G","depolama_id":"7","marka_id":"2"},{"id":"134","isim":"Galaxy S10","depolama_id":"5","marka_id":"2"},{"id":"135","isim":"Galaxy S10","depolama_id":"7","marka_id":"2"},{"id":"136","isim":"Galaxy S10 Lite","depolama_id":"5","marka_id":"2"},{"id":"137","isim":"Galaxy S10+","depolama_id":"5","marka_id":"2"},{"id":"138","isim":"Galaxy S10+","depolama_id":"7","marka_id":"2"},{"id":"139","isim":"Galaxy S10+","depolama_id":"8","marka_id":"2"},{"id":"140","isim":"Galaxy S10e","depolama_id":"5","marka_id":"2"},{"id":"141","isim":"Galaxy S20","depolama_id":"5","marka_id":"2"},{"id":"142","isim":"Galaxy S20 5G","depolama_id":"5","marka_id":"2"},{"id":"143","isim":"Galaxy S20 FE","depolama_id":"5","marka_id":"2"},{"id":"144","isim":"Galaxy S20 FE","depolama_id":"6","marka_id":"2"},{"id":"145","isim":"Galaxy S20 FE 5G","depolama_id":"5","marka_id":"2"},{"id":"146","isim":"Galaxy S20 FE 5G","depolama_id":"6","marka_id":"2"},{"id":"147","isim":"Galaxy S20 Ultra 5G","depolama_id":"5","marka_id":"2"},{"id":"148","isim":"Galaxy S20 Ultra 5G","depolama_id":"6","marka_id":"2"},{"id":"149","isim":"Galaxy S20 Ultra 5G","depolama_id":"7","marka_id":"2"},{"id":"150","isim":"Galaxy S20+","depolama_id":"5","marka_id":"2"},{"id":"151","isim":"Galaxy S20+ 5G","depolama_id":"5","marka_id":"2"},{"id":"152","isim":"Galaxy S20+ 5G","depolama_id":"6","marka_id":"2"},{"id":"153","isim":"Galaxy S20+ 5G","depolama_id":"7","marka_id":"2"},{"id":"154","isim":"Galaxy S21 5G","depolama_id":"5","marka_id":"2"},{"id":"155","isim":"Galaxy S21 5G","depolama_id":"6","marka_id":"2"},{"id":"156","isim":"Galaxy S21 FE 5G","depolama_id":"5","marka_id":"2"},{"id":"157","isim":"Galaxy S21 FE 5G","depolama_id":"6","marka_id":"2"},{"id":"158","isim":"Galaxy S21 Ultra 5G","depolama_id":"5","marka_id":"2"},{"id":"159","isim":"Galaxy S21 Ultra 5G","depolama_id":"6","marka_id":"2"},{"id":"160","isim":"Galaxy S21 Ultra 5G","depolama_id":"7","marka_id":"2"},{"id":"161","isim":"Galaxy S21+ 5G","depolama_id":"5","marka_id":"2"},{"id":"162","isim":"Galaxy S21+ 5G","depolama_id":"6","marka_id":"2"},{"id":"163","isim":"Galaxy S22 5G","depolama_id":"5","marka_id":"2"},{"id":"164","isim":"Galaxy S22 5G","depolama_id":"6","marka_id":"2"},{"id":"165","isim":"Galaxy S22 Ultra 5G","depolama_id":"5","marka_id":"2"},{"id":"166","isim":"Galaxy S22 Ultra 5G","depolama_id":"6","marka_id":"2"},{"id":"167","isim":"Galaxy S22 Ultra 5G","depolama_id":"7","marka_id":"2"},{"id":"168","isim":"Galaxy S22 Ultra 5G","depolama_id":"8","marka_id":"2"},{"id":"169","isim":"Galaxy S22+ 5G","depolama_id":"5","marka_id":"2"},{"id":"170","isim":"Galaxy S22+ 5G","depolama_id":"6","marka_id":"2"},{"id":"171","isim":"Galaxy S23","depolama_id":"5","marka_id":"2"},{"id":"172","isim":"Galaxy S23","depolama_id":"6","marka_id":"2"},{"id":"173","isim":"Galaxy S23 Ultra","depolama_id":"6","marka_id":"2"},{"id":"174","isim":"Galaxy S23 Ultra","depolama_id":"7","marka_id":"2"},{"id":"175","isim":"Galaxy S23 Ultra","depolama_id":"8","marka_id":"2"},{"id":"176","isim":"Galaxy S23+","depolama_id":"6","marka_id":"2"},{"id":"177","isim":"Galaxy S23+","depolama_id":"7","marka_id":"2"},{"id":"178","isim":"Galaxy S9","depolama_id":"4","marka_id":"2"},{"id":"179","isim":"Galaxy S9+","depolama_id":"4","marka_id":"2"},{"id":"180","isim":"Galaxy S9+","depolama_id":"5","marka_id":"2"},{"id":"181","isim":"Galaxy S9+","depolama_id":"6","marka_id":"2"},{"id":"182","isim":"Galaxy Z Flip","depolama_id":"6","marka_id":"2"},{"id":"183","isim":"Galaxy Z Flip 5G","depolama_id":"6","marka_id":"2"},{"id":"184","isim":"Galaxy Z Flip3 5G","depolama_id":"5","marka_id":"2"},{"id":"185","isim":"Galaxy Z Flip3 5G","depolama_id":"6","marka_id":"2"},{"id":"186","isim":"Galaxy Z Flip4","depolama_id":"5","marka_id":"2"},{"id":"187","isim":"Galaxy Z Flip4","depolama_id":"6","marka_id":"2"},{"id":"188","isim":"Galaxy Z Flip4","depolama_id":"7","marka_id":"2"},{"id":"189","isim":"Galaxy Z Flip4 Bespoke Edition","depolama_id":"6","marka_id":"2"},{"id":"190","isim":"Galaxy Z Fold2 5G","depolama_id":"6","marka_id":"2"},{"id":"191","isim":"Galaxy Z Fold2 5G","depolama_id":"7","marka_id":"2"},{"id":"192","isim":"Galaxy Z Fold3 5G","depolama_id":"6","marka_id":"2"},{"id":"193","isim":"Galaxy Z Fold3 5G","depolama_id":"7","marka_id":"2"},{"id":"194","isim":"Galaxy Z Fold4","depolama_id":"6","marka_id":"2"},{"id":"195","isim":"Galaxy Z Fold4","depolama_id":"7","marka_id":"2"},{"id":"196","isim":"Galaxy Z Fold4","depolama_id":"8","marka_id":"2"},{"id":"197","isim":"Galaxy A20e","depolama_id":"3","marka_id":"2"},{"id":"198","isim":"Galaxy A23 5G","depolama_id":"4","marka_id":"2"},{"id":"199","isim":"Galaxy A32","depolama_id":"4","marka_id":"2"},{"id":"200","isim":"Galaxy A50","depolama_id":"5","marka_id":"2"},{"id":"201","isim":"Galaxy A52","depolama_id":"5","marka_id":"2"},{"id":"202","isim":"Galaxy A7 (2018)","depolama_id":"4","marka_id":"2"},{"id":"203","isim":"Galaxy A70","depolama_id":"5","marka_id":"2"},{"id":"204","isim":"Galaxy A8+","depolama_id":"4","marka_id":"2"},{"id":"205","isim":"Galaxy A9 (2018)","depolama_id":"5","marka_id":"2"},{"id":"206","isim":"Galaxy A90 5G","depolama_id":"5","marka_id":"2"},{"id":"207","isim":"Galaxy Fold 5G","depolama_id":"7","marka_id":"2"},{"id":"208","isim":"Galaxy J6+","depolama_id":"3","marka_id":"2"},{"id":"209","isim":"Galaxy S10 5G","depolama_id":"6","marka_id":"2"},{"id":"210","isim":"Galaxy XCover 4s","depolama_id":"3","marka_id":"2"},{"id":"211","isim":"Galaxy Xcover Pro","depolama_id":"4","marka_id":"2"},{"id":"212","isim":"Pixel 3","depolama_id":"4","marka_id":"3"},{"id":"213","isim":"Pixel 3","depolama_id":"5","marka_id":"3"},{"id":"214","isim":"Pixel 3 XL","depolama_id":"4","marka_id":"3"},{"id":"215","isim":"Pixel 3 XL","depolama_id":"5","marka_id":"3"},{"id":"216","isim":"Pixel 3a","depolama_id":"4","marka_id":"3"},{"id":"217","isim":"Pixel 3a XL","depolama_id":"4","marka_id":"3"},{"id":"218","isim":"Pixel 4","depolama_id":"4","marka_id":"3"},{"id":"219","isim":"Pixel 4","depolama_id":"5","marka_id":"3"},{"id":"220","isim":"Pixel 4 XL","depolama_id":"4","marka_id":"3"},{"id":"221","isim":"Pixel 4 XL","depolama_id":"5","marka_id":"3"},{"id":"222","isim":"Pixel 4a","depolama_id":"5","marka_id":"3"},{"id":"223","isim":"Pixel 4a 5G","depolama_id":"5","marka_id":"3"},{"id":"224","isim":"Pixel 5","depolama_id":"5","marka_id":"3"},{"id":"225","isim":"Pixel 6a","depolama_id":"5","marka_id":"3"},{"id":"226","isim":"Pixel 7","depolama_id":"5","marka_id":"3"},{"id":"227","isim":"Pixel 7","depolama_id":"6","marka_id":"3"},{"id":"228","isim":"Pixel 7 Pro","depolama_id":"5","marka_id":"3"},{"id":"229","isim":"Pixel 7 Pro","depolama_id":"6","marka_id":"3"},{"id":"230","isim":"Pixel 6","depolama_id":"5","marka_id":"3"},{"id":"231","isim":"Pixel 6 Pro","depolama_id":"5","marka_id":"3"},{"id":"232","isim":"Pixel 6 Pro","depolama_id":"6","marka_id":"3"},{"id":"233","isim":"Honor 10 Lite","depolama_id":"4","marka_id":"4"},{"id":"234","isim":"Honor 20","depolama_id":"5","marka_id":"4"},{"id":"235","isim":"Honor 20 Pro","depolama_id":"5","marka_id":"4"},{"id":"236","isim":"Honor 20 Pro","depolama_id":"6","marka_id":"4"},{"id":"237","isim":"Honor 20 lite","depolama_id":"5","marka_id":"4"},{"id":"238","isim":"Honor 50 Lite","depolama_id":"5","marka_id":"4"},{"id":"239","isim":"Honor 8A Pro","depolama_id":"3","marka_id":"4"},{"id":"240","isim":"Honor 9X Lite","depolama_id":"5","marka_id":"4"},{"id":"241","isim":"Honor View 20","depolama_id":"5","marka_id":"4"},{"id":"242","isim":"Honor View 20","depolama_id":"6","marka_id":"4"},{"id":"243","isim":"Mate 20","depolama_id":"5","marka_id":"4"},{"id":"244","isim":"Mate 20 Pro","depolama_id":"5","marka_id":"4"},{"id":"245","isim":"Mate 20 X","depolama_id":"5","marka_id":"4"},{"id":"246","isim":"Mate 20 X","depolama_id":"6","marka_id":"4"},{"id":"247","isim":"Mate 20 X 5G","depolama_id":"5","marka_id":"4"},{"id":"248","isim":"Mate 20 X 5G","depolama_id":"6","marka_id":"4"},{"id":"249","isim":"P Smart Z","depolama_id":"4","marka_id":"4"},{"id":"250","isim":"P30","depolama_id":"4","marka_id":"4"},{"id":"251","isim":"P30","depolama_id":"5","marka_id":"4"},{"id":"252","isim":"P30 Pro","depolama_id":"5","marka_id":"4"},{"id":"253","isim":"P30 Pro","depolama_id":"6","marka_id":"4"},{"id":"254","isim":"P30 Pro","depolama_id":"7","marka_id":"4"},{"id":"255","isim":"P30 Pro New Edition","depolama_id":"6","marka_id":"4"},{"id":"256","isim":"P30 lite","depolama_id":"5","marka_id":"4"},{"id":"257","isim":"P30 lite 2020","depolama_id":"5","marka_id":"4"},{"id":"258","isim":"P30 lite 2020","depolama_id":"6","marka_id":"4"},{"id":"259","isim":"nova 5T","depolama_id":"5","marka_id":"4"},{"id":"260","isim":"Honor 9 Lite","depolama_id":"3","marka_id":"4"},{"id":"261","isim":"Honor 9X","depolama_id":"5","marka_id":"4"},{"id":"262","isim":"Honor Play","depolama_id":"4","marka_id":"4"},{"id":"263","isim":"Mate 20 lite","depolama_id":"4","marka_id":"4"},{"id":"264","isim":"P Smart 2019","depolama_id":"3","marka_id":"4"},{"id":"265","isim":"P Smart 2019","depolama_id":"4","marka_id":"4"},{"id":"266","isim":"P Smart+ 2019","depolama_id":"4","marka_id":"4"},{"id":"267","isim":"7","depolama_id":"5","marka_id":"5"},{"id":"268","isim":"7","depolama_id":"6","marka_id":"5"},{"id":"269","isim":"8","depolama_id":"5","marka_id":"5"},{"id":"270","isim":"8","depolama_id":"6","marka_id":"5"},{"id":"271","isim":"9","depolama_id":"5","marka_id":"5"},{"id":"272","isim":"9","depolama_id":"6","marka_id":"5"},{"id":"273","isim":"10 Pro","depolama_id":"5","marka_id":"5"},{"id":"274","isim":"10 Pro","depolama_id":"6","marka_id":"5"},{"id":"275","isim":"10T","depolama_id":"5","marka_id":"5"},{"id":"276","isim":"10T","depolama_id":"6","marka_id":"5"},{"id":"277","isim":"6T","depolama_id":"5","marka_id":"5"},{"id":"278","isim":"6T","depolama_id":"6","marka_id":"5"},{"id":"279","isim":"7 Pro","depolama_id":"5","marka_id":"5"},{"id":"280","isim":"7 Pro","depolama_id":"6","marka_id":"5"},{"id":"281","isim":"7 Pro 5G","depolama_id":"6","marka_id":"5"},{"id":"282","isim":"7T","depolama_id":"5","marka_id":"5"},{"id":"283","isim":"7T","depolama_id":"6","marka_id":"5"},{"id":"284","isim":"8 Pro","depolama_id":"5","marka_id":"5"},{"id":"285","isim":"8 Pro","depolama_id":"6","marka_id":"5"},{"id":"286","isim":"8T","depolama_id":"5","marka_id":"5"},{"id":"287","isim":"8T","depolama_id":"6","marka_id":"5"},{"id":"288","isim":"9 Pro","depolama_id":"5","marka_id":"5"},{"id":"289","isim":"9 Pro","depolama_id":"6","marka_id":"5"},{"id":"290","isim":"Nord","depolama_id":"5","marka_id":"5"},{"id":"291","isim":"Nord","depolama_id":"6","marka_id":"5"},{"id":"292","isim":"Nord 2 5G","depolama_id":"5","marka_id":"5"},{"id":"293","isim":"Nord 2 5G","depolama_id":"6","marka_id":"5"},{"id":"294","isim":"Nord 2T 5G","depolama_id":"5","marka_id":"5"},{"id":"295","isim":"Nord 2T 5G","depolama_id":"6","marka_id":"5"},{"id":"296","isim":"Nord CE 2 5G","depolama_id":"5","marka_id":"5"},{"id":"297","isim":"Nord CE 2 Lite 5G","depolama_id":"5","marka_id":"5"},{"id":"298","isim":"Nord CE 5G","depolama_id":"5","marka_id":"5"},{"id":"299","isim":"Nord CE 5G","depolama_id":"6","marka_id":"5"},{"id":"300","isim":"Nord N10 5G","depolama_id":"5","marka_id":"5"},{"id":"301","isim":"Nord N100","depolama_id":"4","marka_id":"5"},{"id":"302","isim":"7T Pro","depolama_id":"6","marka_id":"5"},{"id":"303","isim":"7T Pro McLaren Edition","depolama_id":"6","marka_id":"5"},{"id":"304","isim":"Nord N200 5G","depolama_id":"4","marka_id":"5"},{"id":"305","isim":"ROG Phone 3","depolama_id":"5","marka_id":"6"},{"id":"306","isim":"ROG Phone 3","depolama_id":"6","marka_id":"6"},{"id":"307","isim":"ROG Phone 3","depolama_id":"7","marka_id":"6"},{"id":"308","isim":"ROG Phone 5","depolama_id":"5","marka_id":"6"},{"id":"309","isim":"ROG Phone 5","depolama_id":"6","marka_id":"6"},{"id":"310","isim":"Zenfone 8","depolama_id":"5","marka_id":"6"},{"id":"311","isim":"Zenfone 8","depolama_id":"6","marka_id":"6"},{"id":"312","isim":"Zenfone 8 Flip","depolama_id":"6","marka_id":"6"},{"id":"313","isim":"Zenfone 9","depolama_id":"5","marka_id":"6"},{"id":"314","isim":"Zenfone 9","depolama_id":"6","marka_id":"6"},{"id":"315","isim":"Zenfone 6","depolama_id":"4","marka_id":"6"},{"id":"316","isim":"Zenfone 6","depolama_id":"5","marka_id":"6"},{"id":"317","isim":"Zenfone 6","depolama_id":"6","marka_id":"6"},{"id":"318","isim":"S62 Pro","depolama_id":"5","marka_id":"7"},{"id":"319","isim":"U Pro","depolama_id":"4","marka_id":"8"},{"id":"320","isim":"U Pro","depolama_id":"5","marka_id":"8"},{"id":"321","isim":"3","depolama_id":"4","marka_id":"9"},{"id":"322","isim":"3+","depolama_id":"4","marka_id":"9"},{"id":"323","isim":"4","depolama_id":"5","marka_id":"9"},{"id":"324","isim":"4","depolama_id":"6","marka_id":"9"},{"id":"325","isim":"U Ultra","depolama_id":"4","marka_id":"10"},{"id":"326","isim":"U Ultra","depolama_id":"5","marka_id":"10"},{"id":"327","isim":"U11","depolama_id":"5","marka_id":"10"},{"id":"328","isim":"50","depolama_id":"5","marka_id":"11"},{"id":"329","isim":"50","depolama_id":"6","marka_id":"11"},{"id":"330","isim":"70","depolama_id":"5","marka_id":"11"},{"id":"331","isim":"Magic4 Lite","depolama_id":"5","marka_id":"11"},{"id":"332","isim":"Magic4 Pro","depolama_id":"6","marka_id":"11"},{"id":"333","isim":"Magic4 Lite 5G","depolama_id":"5","marka_id":"11"},{"id":"334","isim":"Wing 5G","depolama_id":"5","marka_id":"12"},{"id":"335","isim":"Wing 5G","depolama_id":"6","marka_id":"12"},{"id":"336","isim":"G8 ThinQ","depolama_id":"5","marka_id":"12"},{"id":"337","isim":"V50 ThinQ 5G","depolama_id":"5","marka_id":"12"},{"id":"338","isim":"V50S ThinQ 5G","depolama_id":"6","marka_id":"12"},{"id":"339","isim":"Surface Duo","depolama_id":"5","marka_id":"13"},{"id":"340","isim":"Surface Duo","depolama_id":"6","marka_id":"13"},{"id":"341","isim":"Surface Duo 2","depolama_id":"5","marka_id":"13"},{"id":"342","isim":"Surface Duo 2","depolama_id":"6","marka_id":"13"},{"id":"343","isim":"Surface Duo 2","depolama_id":"7","marka_id":"13"},{"id":"344","isim":"Edge","depolama_id":"5","marka_id":"14"},{"id":"345","isim":"Edge 20 Lite","depolama_id":"5","marka_id":"14"},{"id":"346","isim":"Edge 20 Pro","depolama_id":"6","marka_id":"14"},{"id":"347","isim":"Moto G 5G Plus","depolama_id":"4","marka_id":"14"},{"id":"348","isim":"Moto G Pro","depolama_id":"5","marka_id":"14"},{"id":"349","isim":"Moto G100","depolama_id":"5","marka_id":"14"},{"id":"350","isim":"Moto G100","depolama_id":"6","marka_id":"14"},{"id":"351","isim":"Moto G30","depolama_id":"4","marka_id":"14"},{"id":"352","isim":"Moto G30","depolama_id":"5","marka_id":"14"},{"id":"353","isim":"Moto G50","depolama_id":"4","marka_id":"14"},{"id":"354","isim":"Moto G7 Plus","depolama_id":"4","marka_id":"14"},{"id":"355","isim":"Moto G8 Power","depolama_id":"4","marka_id":"14"},{"id":"356","isim":"Moto G8 Power Lite","depolama_id":"4","marka_id":"14"},{"id":"357","isim":"Moto G82 5G","depolama_id":"5","marka_id":"14"},{"id":"358","isim":"Moto G9 Play","depolama_id":"4","marka_id":"14"},{"id":"359","isim":"Moto G9 Plus","depolama_id":"5","marka_id":"14"},{"id":"360","isim":"One Macro","depolama_id":"4","marka_id":"14"},{"id":"361","isim":"Razr","depolama_id":"5","marka_id":"14"},{"id":"362","isim":"Razr 5G","depolama_id":"6","marka_id":"14"},{"id":"363","isim":"Moto G62 5G","depolama_id":"4","marka_id":"14"},{"id":"364","isim":"Moto G8 Plus","depolama_id":"4","marka_id":"14"},{"id":"365","isim":"Moto G9 Power","depolama_id":"5","marka_id":"14"},{"id":"366","isim":"7 Plus","depolama_id":"4","marka_id":"15"},{"id":"367","isim":"7.1","depolama_id":"3","marka_id":"15"},{"id":"368","isim":"7.1","depolama_id":"4","marka_id":"15"},{"id":"369","isim":"9 PureView","depolama_id":"5","marka_id":"15"},{"id":"370","isim":"XR20","depolama_id":"4","marka_id":"15"},{"id":"371","isim":"XR20","depolama_id":"5","marka_id":"15"},{"id":"372","isim":"5.3","depolama_id":"4","marka_id":"15"},{"id":"373","isim":"7.2","depolama_id":"4","marka_id":"15"},{"id":"374","isim":"7.2","depolama_id":"5","marka_id":"15"},{"id":"375","isim":"8.3 5G","depolama_id":"4","marka_id":"15"},{"id":"376","isim":"8.3 5G","depolama_id":"5","marka_id":"15"},{"id":"377","isim":"phone (1)","depolama_id":"5","marka_id":"16"},{"id":"378","isim":"phone (1)","depolama_id":"6","marka_id":"16"},{"id":"379","isim":"Red Magic 7","depolama_id":"5","marka_id":"17"},{"id":"380","isim":"Red Magic 7","depolama_id":"6","marka_id":"17"},{"id":"381","isim":"Red Magic 7 Pro","depolama_id":"5","marka_id":"17"},{"id":"382","isim":"Red Magic 7 Pro","depolama_id":"6","marka_id":"17"},{"id":"383","isim":"Red Magic 7 Pro","depolama_id":"7","marka_id":"17"},{"id":"384","isim":"Red Magic 7S Pro","depolama_id":"6","marka_id":"17"},{"id":"385","isim":"Red Magic 7S Pro","depolama_id":"7","marka_id":"17"},{"id":"386","isim":"Red Magic 8 Pro","depolama_id":"6","marka_id":"17"},{"id":"387","isim":"Red Magic 8 Pro","depolama_id":"7","marka_id":"17"},{"id":"388","isim":"A15","depolama_id":"3","marka_id":"18"},{"id":"389","isim":"A5 2020","depolama_id":"4","marka_id":"18"},{"id":"390","isim":"A54 5G","depolama_id":"4","marka_id":"18"},{"id":"391","isim":"A54 5G","depolama_id":"5","marka_id":"18"},{"id":"392","isim":"A72","depolama_id":"5","marka_id":"18"},{"id":"393","isim":"A74 5G","depolama_id":"5","marka_id":"18"},{"id":"394","isim":"A9 2020","depolama_id":"5","marka_id":"18"},{"id":"395","isim":"Find N2 Flip","depolama_id":"6","marka_id":"18"},{"id":"396","isim":"Find X","depolama_id":"6","marka_id":"18"},{"id":"397","isim":"Find X2","depolama_id":"6","marka_id":"18"},{"id":"398","isim":"Find X2 Lite","depolama_id":"5","marka_id":"18"},{"id":"399","isim":"Find X2 Lite 5G","depolama_id":"5","marka_id":"18"},{"id":"400","isim":"Find X2 Neo","depolama_id":"6","marka_id":"18"},{"id":"401","isim":"Find X2 Pro","depolama_id":"6","marka_id":"18"},{"id":"402","isim":"Find X2 Pro","depolama_id":"7","marka_id":"18"},{"id":"403","isim":"Find X3 Neo","depolama_id":"6","marka_id":"18"},{"id":"404","isim":"Find X3 Pro 5G","depolama_id":"6","marka_id":"18"},{"id":"405","isim":"Find X5","depolama_id":"6","marka_id":"18"},{"id":"406","isim":"Find X5 Lite","depolama_id":"6","marka_id":"18"},{"id":"407","isim":"Find X5 Pro","depolama_id":"6","marka_id":"18"},{"id":"408","isim":"RX17 Pro","depolama_id":"5","marka_id":"18"},{"id":"409","isim":"Reno","depolama_id":"6","marka_id":"18"},{"id":"410","isim":"Reno 10x zoom","depolama_id":"6","marka_id":"18"},{"id":"411","isim":"Reno 2","depolama_id":"6","marka_id":"18"},{"id":"412","isim":"Reno Z","depolama_id":"5","marka_id":"18"},{"id":"413","isim":"Reno2 Z","depolama_id":"5","marka_id":"18"},{"id":"414","isim":"Reno4 Pro 5G","depolama_id":"6","marka_id":"18"},{"id":"415","isim":"Reno4 Z 5G","depolama_id":"5","marka_id":"18"},{"id":"416","isim":"Reno7 5G","depolama_id":"5","marka_id":"18"},{"id":"417","isim":"Reno8 5G","depolama_id":"6","marka_id":"18"},{"id":"418","isim":"Reno8 Pro 5G","depolama_id":"6","marka_id":"18"},{"id":"419","isim":"A9","depolama_id":"5","marka_id":"18"},{"id":"420","isim":"Find X3 Lite 5G","depolama_id":"5","marka_id":"18"},{"id":"421","isim":"Reno 5G","depolama_id":"6","marka_id":"18"},{"id":"422","isim":"Reno7","depolama_id":"5","marka_id":"18"},{"id":"423","isim":"Phone 2","depolama_id":"4","marka_id":"19"},{"id":"424","isim":"6","depolama_id":"4","marka_id":"20"},{"id":"425","isim":"6","depolama_id":"5","marka_id":"20"},{"id":"426","isim":"7","depolama_id":"4","marka_id":"20"},{"id":"427","isim":"7 5G","depolama_id":"5","marka_id":"20"},{"id":"428","isim":"7 Pro","depolama_id":"5","marka_id":"20"},{"id":"429","isim":"8 5G","depolama_id":"4","marka_id":"20"},{"id":"430","isim":"8 5G","depolama_id":"5","marka_id":"20"},{"id":"431","isim":"8 Pro","depolama_id":"5","marka_id":"20"},{"id":"432","isim":"GT 5G","depolama_id":"5","marka_id":"20"},{"id":"433","isim":"GT 5G","depolama_id":"6","marka_id":"20"},{"id":"434","isim":"GT2 Pro","depolama_id":"6","marka_id":"20"},{"id":"435","isim":"X50 Pro 5G","depolama_id":"5","marka_id":"20"},{"id":"436","isim":"X50 Pro 5G","depolama_id":"6","marka_id":"20"},{"id":"437","isim":"X2","depolama_id":"5","marka_id":"20"},{"id":"438","isim":"X3 SuperZoom","depolama_id":"6","marka_id":"20"},{"id":"439","isim":"Xperia 1","depolama_id":"5","marka_id":"21"},{"id":"440","isim":"Xperia 1 II","depolama_id":"6","marka_id":"21"},{"id":"441","isim":"Xperia 1 II 5G","depolama_id":"6","marka_id":"21"},{"id":"442","isim":"Xperia 1 III","depolama_id":"6","marka_id":"21"},{"id":"443","isim":"Xperia 1 III","depolama_id":"7","marka_id":"21"},{"id":"444","isim":"Xperia 1 IV","depolama_id":"6","marka_id":"21"},{"id":"445","isim":"Xperia 1 IV","depolama_id":"7","marka_id":"21"},{"id":"446","isim":"Xperia 10 II","depolama_id":"5","marka_id":"21"},{"id":"447","isim":"Xperia 10 III","depolama_id":"5","marka_id":"21"},{"id":"448","isim":"Xperia 10 IV","depolama_id":"5","marka_id":"21"},{"id":"449","isim":"Xperia 5","depolama_id":"5","marka_id":"21"},{"id":"450","isim":"Xperia 5 II","depolama_id":"5","marka_id":"21"},{"id":"451","isim":"Xperia 5 III","depolama_id":"5","marka_id":"21"},{"id":"452","isim":"Xperia 5 IV","depolama_id":"5","marka_id":"21"},{"id":"453","isim":"Xperia 5 IV","depolama_id":"6","marka_id":"21"},{"id":"454","isim":"Xperia L4","depolama_id":"4","marka_id":"21"},{"id":"455","isim":"Xperia XZ3","depolama_id":"4","marka_id":"21"},{"id":"456","isim":"Xperia ZX","depolama_id":"3","marka_id":"21"},{"id":"457","isim":"Xperia ZX","depolama_id":"4","marka_id":"21"},{"id":"458","isim":"Xperia 10","depolama_id":"4","marka_id":"21"},{"id":"459","isim":"Xperia 10 Plus","depolama_id":"4","marka_id":"21"},{"id":"460","isim":"Xperia L3","depolama_id":"3","marka_id":"21"},{"id":"461","isim":"10 5G","depolama_id":"5","marka_id":"22"},{"id":"462","isim":"10 pro","depolama_id":"5","marka_id":"22"},{"id":"463","isim":"20 5G","depolama_id":"5","marka_id":"22"},{"id":"464","isim":"20 5G","depolama_id":"6","marka_id":"22"},{"id":"465","isim":"12","depolama_id":"5","marka_id":"23"},{"id":"466","isim":"12","depolama_id":"6","marka_id":"23"},{"id":"467","isim":"11T","depolama_id":"6","marka_id":"23"},{"id":"468","isim":"11T Pro","depolama_id":"5","marka_id":"23"},{"id":"469","isim":"11T Pro","depolama_id":"6","marka_id":"23"},{"id":"470","isim":"12 Pro","depolama_id":"6","marka_id":"23"},{"id":"471","isim":"Black Shark 5 Pro","depolama_id":"5","marka_id":"23"},{"id":"472","isim":"Black Shark 5 Pro","depolama_id":"6","marka_id":"23"},{"id":"473","isim":"Black Shark 5 Pro","depolama_id":"7","marka_id":"23"},{"id":"474","isim":"Mi 10 Lite","depolama_id":"4","marka_id":"23"},{"id":"475","isim":"Mi 10 Lite","depolama_id":"5","marka_id":"23"},{"id":"476","isim":"Mi 10 Lite","depolama_id":"6","marka_id":"23"},{"id":"477","isim":"Mi 10T Pro 5G","depolama_id":"5","marka_id":"23"},{"id":"478","isim":"Mi 10T Pro 5G","depolama_id":"6","marka_id":"23"},{"id":"479","isim":"Mi 11","depolama_id":"5","marka_id":"23"},{"id":"480","isim":"Mi 11","depolama_id":"6","marka_id":"23"},{"id":"481","isim":"Mi 11 Ultra","depolama_id":"6","marka_id":"23"},{"id":"482","isim":"Mi 11i","depolama_id":"5","marka_id":"23"},{"id":"483","isim":"Mi 11i","depolama_id":"6","marka_id":"23"},{"id":"484","isim":"Mi 9","depolama_id":"4","marka_id":"23"},{"id":"485","isim":"Mi 9","depolama_id":"5","marka_id":"23"},{"id":"486","isim":"Mi 9T","depolama_id":"4","marka_id":"23"},{"id":"487","isim":"Mi 9T Pro","depolama_id":"5","marka_id":"23"},{"id":"488","isim":"Mi A2","depolama_id":"3","marka_id":"23"},{"id":"489","isim":"Mi A2","depolama_id":"4","marka_id":"23"},{"id":"490","isim":"Mi Lite","depolama_id":"4","marka_id":"23"},{"id":"491","isim":"Mi Lite","depolama_id":"5","marka_id":"23"},{"id":"492","isim":"Mi Lite","depolama_id":"6","marka_id":"23"},{"id":"493","isim":"Mi Mix 3","depolama_id":"5","marka_id":"23"},{"id":"494","isim":"Mi Note 10","depolama_id":"6","marka_id":"23"},{"id":"495","isim":"POCO F1","depolama_id":"4","marka_id":"23"},{"id":"496","isim":"POCO F1","depolama_id":"5","marka_id":"23"},{"id":"497","isim":"POCO F2 Pro","depolama_id":"5","marka_id":"23"},{"id":"498","isim":"POCO F2 Pro","depolama_id":"6","marka_id":"23"},{"id":"499","isim":"POCO F3","depolama_id":"5","marka_id":"23"},{"id":"500","isim":"POCO F3","depolama_id":"6","marka_id":"23"},{"id":"501","isim":"POCO F4 GT","depolama_id":"6","marka_id":"23"},{"id":"502","isim":"POCO M3 Pro 5G","depolama_id":"5","marka_id":"23"},{"id":"503","isim":"POCO M4 Pro","depolama_id":"5","marka_id":"23"},{"id":"504","isim":"POCO M4 Pro","depolama_id":"6","marka_id":"23"},{"id":"505","isim":"POCO M4 Pro 5G","depolama_id":"5","marka_id":"23"},{"id":"506","isim":"POCO X3 NFC","depolama_id":"4","marka_id":"23"},{"id":"507","isim":"POCO X3 NFC","depolama_id":"5","marka_id":"23"},{"id":"508","isim":"POCO X3 Pro","depolama_id":"5","marka_id":"23"},{"id":"509","isim":"POCO X3 Pro","depolama_id":"6","marka_id":"23"},{"id":"510","isim":"POCO X4 Pro 5G","depolama_id":"6","marka_id":"23"},{"id":"511","isim":"Redmi 7","depolama_id":"2","marka_id":"23"},{"id":"512","isim":"Redmi 7","depolama_id":"3","marka_id":"23"},{"id":"513","isim":"Redmi 7","depolama_id":"4","marka_id":"23"},{"id":"514","isim":"Redmi 7A","depolama_id":"2","marka_id":"23"},{"id":"515","isim":"Redmi 7A","depolama_id":"3","marka_id":"23"},{"id":"516","isim":"Redmi Note 10 5G","depolama_id":"4","marka_id":"23"},{"id":"517","isim":"Redmi Note 10 5G","depolama_id":"5","marka_id":"23"},{"id":"518","isim":"Redmi Note 10 Pro","depolama_id":"4","marka_id":"23"},{"id":"519","isim":"Redmi Note 10 Pro","depolama_id":"5","marka_id":"23"},{"id":"520","isim":"Redmi Note 10S","depolama_id":"5","marka_id":"23"},{"id":"521","isim":"Redmi Note 11 Pro","depolama_id":"5","marka_id":"23"},{"id":"522","isim":"Redmi Note 11 Pro","depolama_id":"6","marka_id":"23"},{"id":"523","isim":"Redmi Note 11 Pro 5G","depolama_id":"5","marka_id":"23"},{"id":"524","isim":"Redmi Note 11 Pro 5G","depolama_id":"6","marka_id":"23"},{"id":"525","isim":"Redmi Note 6 Pro","depolama_id":"3","marka_id":"23"},{"id":"526","isim":"Redmi Note 6 Pro","depolama_id":"4","marka_id":"23"},{"id":"527","isim":"Redmi Note 7","depolama_id":"4","marka_id":"23"},{"id":"528","isim":"Redmi Note 8 Pro","depolama_id":"4","marka_id":"23"},{"id":"529","isim":"Redmi Note 8 Pro","depolama_id":"5","marka_id":"23"},{"id":"530","isim":"Redmi Note 9","depolama_id":"4","marka_id":"23"},{"id":"531","isim":"Redmi Note 9","depolama_id":"5","marka_id":"23"},{"id":"532","isim":"Redmi Note 9S","depolama_id":"4","marka_id":"23"},{"id":"533","isim":"Redmi Note 9S","depolama_id":"5","marka_id":"23"},{"id":"534","isim":"Redmi Note 9T","depolama_id":"4","marka_id":"23"},{"id":"535","isim":"Redmi Note 9T","depolama_id":"5","marka_id":"23"},{"id":"536","isim":"A2 Lite","depolama_id":"3","marka_id":"23"},{"id":"537","isim":"Mi 10 5G","depolama_id":"5","marka_id":"23"},{"id":"538","isim":"Mi 10 5G","depolama_id":"6","marka_id":"23"},{"id":"539","isim":"Mi 10 Pro 5G","depolama_id":"6","marka_id":"23"},{"id":"540","isim":"Mi 10 Pro 5G","depolama_id":"7","marka_id":"23"},{"id":"541","isim":"Mi 8 Pro","depolama_id":"5","marka_id":"23"},{"id":"542","isim":"Mi 9 Lite","depolama_id":"4","marka_id":"23"},{"id":"543","isim":"Mi 9 Lite","depolama_id":"5","marka_id":"23"},{"id":"544","isim":"Mi 9 SE","depolama_id":"4","marka_id":"23"},{"id":"545","isim":"Mi 9 SE","depolama_id":"5","marka_id":"23"},{"id":"546","isim":"Mi A3","depolama_id":"4","marka_id":"23"},{"id":"547","isim":"Mi A3","depolama_id":"5","marka_id":"23"},{"id":"548","isim":"Mi Mix 3 5G","depolama_id":"4","marka_id":"23"},{"id":"549","isim":"Redmi Note 8","depolama_id":"4","marka_id":"23"},{"id":"550","isim":"Redmi Note 8","depolama_id":"5","marka_id":"23"}]';
+        var modeller = JSON.parse(jsonString);
+
+        // Depolamalar
+        var jsonString = '[{"id":"1","boyut":"8GB"},{"id":"2","boyut":"16GB"},{"id":"3","boyut":"32GB"},{"id":"4","boyut":"64GB"},{"id":"5","boyut":"128GB"},{"id":"6","boyut":"256GB"},{"id":"7","boyut":"512GB"},{"id":"8","boyut":"1024GB"},{"id":"9","boyut":"2048GB"}]';
+        var depolamalar = JSON.parse(jsonString);
+
+        // markaları göster
+        markalar.forEach(element => {
+            $("#markalar").append('<option value="' + element.id + '">' + element.isim + '</option>')
+        });
+
+        // markaya göre model göster
+        $("#markalar").change(function() {
+            var markaId = $("#markalar :selected").val();
+            var isim = "";
+            var options = "<option value='' selected disabled> Marka Seçiniz</option>";
+
+            modeller.forEach(element => {
+                if (element.isim != isim && element.marka_id == markaId) {
+                    isim = element.isim;
+                    options = options + '<option value="' + element.id + '">' + element.isim + '</option>'
+                }
+            });
+            $("#modeller").html(options);
+            $(".marka-seciniz").hide();
+        });
+
+        // Modele göre depolama göster
+        $("#modeller").change(function() {
+            var modelId = $("#modeller").val();
+            var modelName = $("#modeller :selected").text();
+            var depolamaIds = [];
+            var count = 0;
+
+            // Modelin depolama idlerini bul
+            for (let index = 0; index < modeller.length; index++) {
+                const element = modeller[index];
+                if (element.isim == modelName) {
+                    depolamaIds[count] = element.depolama_id;
+                    count++;
+                }
+            }
+            var options = "<option value='' selected disabled> Depolama Seçiniz</option>";
+
+            depolamalar.forEach(element => {
+                for (let index = 0; index < depolamaIds.length; index++) {
+                    const depoId = depolamaIds[index];
+
+                    if (element.id == depoId) {
+                        options = options + '<option value="' + element.id + '">' + element.boyut + '</option>'
+                    }
+                }
+            });
+            $("#depolamalar").html(options);
+            $(".model-seciniz").hide();
+        });
+
+
+
+        // İller api
+        $("#iller").change(function() {
+            $.ajax({
+                url: "api/cep-sigorta/ilceler-api.php",
+                method: 'GET',
+                data: {
+                    "ilId": $("#iller").val()
+                },
+                success: function(apiData) {
+                    $("#ilceler").html("<option value='' selected class='ilce-seciniz'>İlçe Seçiniz</option>" + apiData);
+
+                    $(".ilce-seciniz").html(pageVariable.ilceSeciniz);
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
